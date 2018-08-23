@@ -16,18 +16,33 @@ print('讀完,有',len(data),'留言')
 
 worddict = {}
 for d in data:
-    words = d.split ('')
+    words = d.split (' ')
     for word in words:
         count += 1
         if count % 100000 == 0:
             print(count)
             print(len(worddict))
-        if word in words :
-            worddict [word] += 1
+        if word in worddict :
+            worddict[word] += 1
         else :
-            worddict [word] = 1
-
+            worddict[word] = 1
 
 for word in worddict:
     if worddict[word]>1000:
         print (word,worddict[word])
+print (len)
+
+while True:
+    word = input ('查甚麼:')
+    if word == 'q':
+        print ('exit')
+        break
+    if word in worddict:
+        print (word,'次數',worddict[word])
+    else :
+        print('沒這個字')
+
+
+
+
+
